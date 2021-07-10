@@ -6,10 +6,10 @@ import type { AppProps } from 'next/app'
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-    <Head>
+      <Head>
         <title>CW Convites</title>
-    </Head>
-    <Component {...pageProps} />
+      </Head>
+      <Component {...pageProps} />
     </>
   )
 }
