@@ -8,9 +8,9 @@ import styles from '../styles/Topbar.module.css';
 export function Topbar() {
   return (
     <header className={styles.topBar}>
-      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+      <Navbar collapseOnSelect expand="lg" className={styles.bgTop}>
         <Container>
-          <Navbar.Brand href="https://cwconvites.com">
+          <Navbar.Brand href="https://cwconvites.com" className={styles.NavbarBrand}>
             <Image
               src="/logo_horizontal.svg"
               alt="logotipo CW Convites"
@@ -18,12 +18,12 @@ export function Topbar() {
               height={40}
             />
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" className={styles.navbarTogglerIcon} />
           <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
-          <Nav className="align-items-end">
+          <Nav className={styles.menu}>
             <Nav.Link href="#">CASAMENTO</Nav.Link>
             <Nav.Link href="#">DEBUTANTES</Nav.Link>
-            <NavDropdown title="EMPRESARIAL" id="collasible-nav-dropdown" className="bg-dark">
+            <NavDropdown title="EMPRESARIAL" id="collasible-nav-dropdown">
               <NavDropdown.Item href="#">Convites</NavDropdown.Item>
               <NavDropdown.Item href="#">Caixas</NavDropdown.Item>
               <NavDropdown.Item href="#">Papelaria</NavDropdown.Item>
