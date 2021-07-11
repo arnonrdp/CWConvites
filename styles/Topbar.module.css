@@ -2,27 +2,25 @@
   background-color: var(--secondary-color);
 }
 
-.navbar-nav .nav-link {
-  margin-left: 15px;
-  font-size: 0.8rem;
-}
-
 .menu {
   align-items: flex-end;
 }
 
-.menu > div > div {
-  background-color: var(--secondary-color);
+.menu > a {
+  margin-left: 15px;
 }
 
-.menu > div > div a.active {
+.menu > a:hover,
+.menu > a:focus {
   color: var(--primary-color);
 }
 
-.dropdown-item {
-  background-color: var(--secondary-color) !important;
+@media screen and (max-width: 1000px) {
+  .menu {
+    flex-direction: row;
+    justify-content: space-around;
+  }
 }
-
 @media screen and (max-width: 400px) {
   .NavbarBrand {
     max-width: 200px;

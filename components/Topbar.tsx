@@ -23,11 +23,7 @@ export function Topbar() {
           <Nav className={styles.menu}>
             <Nav.Link href="#">CASAMENTO</Nav.Link>
             <Nav.Link href="#">DEBUTANTES</Nav.Link>
-            <NavDropdown title="EMPRESARIAL" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="#">Convites</NavDropdown.Item>
-              <NavDropdown.Item href="#">Caixas</NavDropdown.Item>
-              <NavDropdown.Item href="#">Papelaria</NavDropdown.Item>
-            </NavDropdown>
+            <Nav.Link href="#">EMPRESARIAL</Nav.Link>
           </Nav>
           </Navbar.Collapse>
         </Container>
