@@ -1,14 +1,14 @@
 import React from 'react';
+import { About } from '../components/About';
+import { Content } from '../components/Content';
 import { Topbar } from '../components/Topbar';
-import styles from '../styles/Home.module.css';
 
 export default function Home() {
   return (
     <>
       <Topbar />
-      <div className={styles.container}>
-      
-      </div>
+      <About />
+      <Content />
     </>
   )
 }
