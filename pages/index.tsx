@@ -10,11 +10,43 @@ export default function Home() {
       <main>
         <About />
         <section>
-          <Portfolio
-            image="/gallery/convite1.jpg"
-            title="Convite de Casamento"
-            description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore distinctio debitis ducimus, voluptates molestias adipisci, natus pariatur velit culpa veniam laborum incidunt quos at quo consequuntur quisquam fugit dolorem voluptatibus."
-          />
+          <div className="row row-cols-1 row-cols-md-3 g-4">
+            <Portfolio
+              image="/gallery/convite1.jpg"
+              title="Convite de Casamento"
+              description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore distinctio debitis ducimus, voluptates molestias adipisci, natus pariatur velit culpa veniam laborum incidunt quos at quo consequuntur quisquam fugit dolorem voluptatibus."
+            />
+            <Portfolio
+              image="/gallery/convite1.jpg"
+              title="Convite de Casamento"
+              description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore distinctio debitis ducimus, voluptates molestias adipisci, natus pariatur velit culpa veniam laborum incidunt quos at quo consequuntur quisquam fugit dolorem voluptatibus."
+            />
+            <Portfolio
+              image="/gallery/convite1.jpg"
+              title="Convite de Casamento"
+              description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore distinctio debitis ducimus, voluptates molestias adipisci, natus pariatur velit culpa veniam laborum incidunt quos at quo consequuntur quisquam fugit dolorem voluptatibus."
+            />
+            <Portfolio
+              image="/gallery/convite1.jpg"
+              title="Convite de Casamento"
+              description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore distinctio debitis ducimus, voluptates molestias adipisci, natus pariatur velit culpa veniam laborum incidunt quos at quo consequuntur quisquam fugit dolorem voluptatibus."
+            />
+            <Portfolio
+              image="/gallery/convite1.jpg"
+              title="Convite de Casamento"
+              description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore distinctio debitis ducimus, voluptates molestias adipisci, natus pariatur velit culpa veniam laborum incidunt quos at quo consequuntur quisquam fugit dolorem voluptatibus."
+            />
+            <Portfolio
+              image="/gallery/convite1.jpg"
+              title="Convite de Casamento"
+              description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore distinctio debitis ducimus, voluptates molestias adipisci, natus pariatur velit culpa veniam laborum incidunt quos at quo consequuntur quisquam fugit dolorem voluptatibus."
+            />
+            <Portfolio
+              image="/gallery/convite1.jpg"
+              title="Convite de Casamento"
+              description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore distinctio debitis ducimus, voluptates molestias adipisci, natus pariatur velit culpa veniam laborum incidunt quos at quo consequuntur quisquam fugit dolorem voluptatibus."
+            />
+          </div>
         </section>
       </main>
     </>
