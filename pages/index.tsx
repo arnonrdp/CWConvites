@@ -1,7 +1,8 @@
 import React from 'react';
 import { About } from '../components/About';
-import { Portfolio } from '../components/Portfolio';
+import { Example, Portfolio } from '../components/Portfolio';
 import { Topbar } from '../components/Topbar';
+import { convites } from '../data/products';
 
 export default function Home() {
   return (
@@ -11,36 +12,26 @@ export default function Home() {
         <About />
         <section>
           <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
-            <Portfolio
-              image="/gallery/convite1.jpg"
-              title="Convite de Maria"
-              description="Maria, Maria, Maria."
+            <Example
+              image={"/gallery/brenna1.jpg"}
+              tag={"casamento"}
+              title={"Brenna & Michael"}
+              description={"Convite em fio de cera e lacre de cera"}
             />
-            <Portfolio
-              image="/gallery/convite1.jpg"
-              title="Convite de José"
-              description="José, José, José."
-            />
-            <Portfolio
-              image="/gallery/convite1.jpg"
-              title="Convite de Antônia"
-              description="Antônia, Antônia, Antônia."
-            />
-            <Portfolio
-              image="/gallery/convite1.jpg"
-              title="Convite de Carol"
-              description="Carol, Carol, Carol."
-            />
-            <Portfolio
-              image="/gallery/convite1.jpg"
-              title="Convite de Wanderson"
-              description="Wanderson, Wanderson, Wanderson."
-            />
-            <Portfolio
-              image="/gallery/convite1.jpg"
-              title="Convite de Idalina"
-              description="Idalina, Idalina, Idalina."
-            />
+          </div>
+
+          <br />
+          
+          <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+
+            {convites.map((c, index) => (
+              <Portfolio
+                key={index}
+                image={c.image}
+                title={c.title}
+                description={c.description}
+              />
+            ))}
           </div>
         </section>
       </main>
