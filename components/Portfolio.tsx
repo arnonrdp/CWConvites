@@ -1,41 +1,61 @@
-import { Accordion, AccordionItem, AccordionButton,  AccordionPanel,  AccordionIcon, Box, Image, Flex, Badge, Text, useDisclosure,
-  Button, Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, } from "@chakra-ui/react";
+import {
+  Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon, Box, Image, Flex, Spacer, Badge, Text, useDisclosure, Button, 
+  Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, Link, UnorderedList, ListItem
+} from "@chakra-ui/react";
 
 type PortfolioProps = {
   image: any;
   title: string;
   description: string;
-  tag?: string;
+  tag: string;
+  modalImage1?: any;
+  modalImage2?: any;
+  modalLinha1?: any;
+  modalLinha2?: any;
+  modalLinha3?: any;
+  modalLinha4?: any;
+  modalLinha5?: any;
+  modalLinha6?: any;
 }
 
-export function Example(props: PortfolioProps) {
+export function Portfolio(props: PortfolioProps) {
   const { isOpen, onOpen, onClose } = useDisclosure()
   return (
-    <Box onClick={onOpen} p="5" maxW="320px" borderWidth="1px">
+    <Box p="5" maxW="320px" borderWidth="1px">
       <Image borderRadius="md" src={props.image} alt="" />
       <Flex align="baseline" mt={2}>
-        <Badge colorScheme="pink">{props.tag}</Badge>
-        <Text
-          ml={2}
-          textTransform="uppercase"
-          fontSize="sm"
-          fontWeight="bold"
-          color="pink.800"
-        >
+        <Badge colorScheme="red">{props.tag}</Badge>
+        <Text ml={2} textTransform="uppercase" fontSize="sm" fontWeight="bold" color="red.800">
           {props.title}
         </Text>
       </Flex>
       <Text mt={2} fontSize="xl" fontWeight="semibold" lineHeight="short">
         {props.description}
       </Text>
+      <Text align="right" fontSize="sm">
+        <Link onClick={onOpen}>
+          <b>Ver detalhes</b>
+        </Link>
+      </Text>
 
-      <Modal isOpen={isOpen} onClose={onClose}>
+      <Modal isOpen={isOpen} size="xl" onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>Modal Title</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et exercitationem voluptas, dignissimos in fuga ipsam impedit? Repellendus sequi in dolorum quo, animi aliquam vitae et ab cupiditate soluta ratione quas.</p>
+            <Flex>
+              <Image m="1" boxSize="160px" objectFit="cover" src={props.modalImage1} alt="" />
+              <Image m="1" boxSize="160px" objectFit="cover" src={props.modalImage2} alt="" />
+            </Flex>
+            <UnorderedList>
+              <ListItem>{props.modalLinha1}</ListItem>
+              <ListItem>{props.modalLinha2}</ListItem>
+              <ListItem>{props.modalLinha3}</ListItem>
+              <ListItem>{props.modalLinha4}</ListItem>
+              <ListItem>{props.modalLinha5}</ListItem>
+              <ListItem>{props.modalLinha6}</ListItem>
+            </UnorderedList>
           </ModalBody>
 
           <ModalFooter>
@@ -51,7 +71,7 @@ export function Example(props: PortfolioProps) {
   );
 }
 
-export function Portfolio(props: PortfolioProps) {
+export function Example(props: PortfolioProps) {
   return (
     <div className="col">
       <div className="card">

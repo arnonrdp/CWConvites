@@ -1,8 +1,9 @@
 import React from 'react';
 import { About } from '../components/About';
-import { Example, Portfolio } from '../components/Portfolio';
+import { Portfolio } from '../components/Portfolio';
 import { Topbar } from '../components/Topbar';
 import { convites } from '../data/products';
+import { SimpleGrid } from "@chakra-ui/react";
 
 export default function Home() {
   return (
@@ -11,28 +12,25 @@ export default function Home() {
       <main>
         <About />
         <section>
-          <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
-            <Example
-              image={"/gallery/brenna1.jpg"}
-              tag={"casamento"}
-              title={"Brenna & Michael"}
-              description={"Convite em fio de cera e lacre de cera"}
-            />
-          </div>
-
-          <br />
-          
-          <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
-
+          <SimpleGrid minChildWidth="280px" spacing="20px">
             {convites.map((c, index) => (
               <Portfolio
                 key={index}
                 image={c.image}
+                tag={c.tag}
                 title={c.title}
                 description={c.description}
+                modalImage1={c.modalImage1}
+                modalImage2={c.modalImage2}
+                modalLinha1={c.modalLinha1}
+                modalLinha2={c.modalLinha2}
+                modalLinha3={c.modalLinha3}
+                modalLinha4={c.modalLinha4}
+                modalLinha5={c.modalLinha5}
+                modalLinha6={c.modalLinha6}
               />
             ))}
-          </div>
+          </SimpleGrid>
         </section>
       </main>
     </>
