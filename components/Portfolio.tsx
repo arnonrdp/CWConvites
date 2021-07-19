@@ -45,8 +45,8 @@ export function Portfolio(props: PortfolioProps) {
           <ModalCloseButton />
           <ModalBody>
             <Flex>
-              <Image m="1" boxSize="160px" objectFit="cover" src={props.modalImage1} alt="" />
-              <Image m="1" boxSize="160px" objectFit="cover" src={props.modalImage2} alt="" />
+              <Image m="1" boxSize="120px" objectFit="cover" src={props.modalImage1} alt="" />
+              <Image m="1" boxSize="120px" objectFit="cover" src={props.modalImage2} alt="" />
             </Flex>
             <UnorderedList>
               <ListItem>{props.modalLinha1}</ListItem>
