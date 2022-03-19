@@ -1,13 +1,13 @@
 <template>
-  <section id="carousel">
-    <v-carousel interval="4000" cycle hide-delimiters>
+  <v-sheet id="carousel" tag="section">
+    <v-carousel interval="5000" cycle hide-delimiters>
       <v-carousel-item v-for="(slide, i) in slides" :key="i" :src="slide.src">
         <v-row class="fill-height" align="end" justify="center" elevation="24">
           <h2 class="text-center text-h4 text-sm-h3 text-md-h2 primary--text font-weight-medium">{{ slide.text }}</h2>
         </v-row>
       </v-carousel-item>
     </v-carousel>
-  </section>
+  </v-sheet>
 </template>
 
 <script>
