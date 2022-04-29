@@ -32,8 +32,8 @@ export default {
       gap: "1rem",
       pagination: false,
       rewind: true,
-      interval: 500,
-      speed: 3000,
+      interval: 600,
+      speed: 2500,
       type: "loop",
     },
     acessados: [
