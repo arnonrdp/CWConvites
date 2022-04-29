@@ -32,7 +32,7 @@ export default {
       gap: "1rem",
       pagination: false,
       rewind: true,
-      interval: 600,
+      interval: 1000,
       speed: 2500,
       type: "loop",
     },
