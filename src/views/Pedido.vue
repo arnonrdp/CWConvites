@@ -26,7 +26,13 @@ export default {
     name: '',
     nameRules: [(v) => !!v || 'Name is required', (v) => (v && v.length <= 10) || 'Name must be less than 10 characters'],
     email: '',
-    emailRules: [(v) => !!v || 'E-mail is required', (v) => /^\S+@\S+\.\S+$/.test(v) || 'E-mail must be valid'],
+    emailRules: [
+      (v) => !!v || 'E-mail is required',
+      (v) =>
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+          v
+        ) || 'E-mail must be valid'
+    ],
     select: null,
     items: ['Item 1', 'Item 2', 'Item 3', 'Item 4'],
     checkbox: false
