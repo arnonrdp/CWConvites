@@ -15,3 +15,34 @@ export default {
   components: { Header }
 }
 </script>
+
+<style>
+html {
+  font-size: 16px;
+}
+@media screen and (max-width: 720px) {
+  html {
+    font-size: 15px;
+  }
+}
+@media screen and (max-width: 640px) {
+  html {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 560px) {
+  html {
+    font-size: 13px;
+  }
+}
+@media screen and (max-width: 480px) {
+  html {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 360px) {
+  html {
+    font-size: 11px;
+  }
+}
+</style>
