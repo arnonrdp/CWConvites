@@ -63,8 +63,13 @@
       hint="Caso seja em dois locais informar os endereços de ambos."
       required
     />
-    <q-input filled v-model="monograma" class="col-md-3 col-sm-6 col-xs-12 q-px-md" label="Monograma" hint="Informar cor e número.">
-    </q-input>
+    <q-input
+      filled
+      v-model="monograma"
+      class="col-md-3 col-sm-6 col-xs-12 q-px-md"
+      label="Monograma"
+      hint="Informar cor e número."
+    />
     <q-input filled v-model="flores" class="col-md-3 col-sm-6 col-xs-12 q-px-md" label="Flores" hint="Informar cor." />
     <q-input filled v-model="arabesco" class="col-md-3 col-sm-6 col-xs-12 q-px-md" label="Arabesco" hint="Informar cor." />
     <q-input
@@ -96,55 +101,54 @@
   </q-form>
 </template>
 
-<script>
-export default {
-  data: () => ({
-    valid: true,
-    nomes: '',
-    fraseIntro: '',
-    fraseCorpo: '',
-    nomePais: '',
-    date: '',
-    local: '',
-    monograma: '',
-    flores: '',
-    arabesco: '',
-    traje: '',
-    acabamento: '',
-    acabamentoOptions: ['Fita de cetim', 'Sisal', 'Fio', 'Pérola', 'Lacre de cera'],
-    senhas: null,
-    localListaPresentes: '',
-    cores: '',
-    anexos: null
-  }),
+<script setup>
+import { ref } from 'vue'
+import { useQuasar } from 'quasar'
 
-  methods: {
-    onSubmit() {
-      const data = {
-        nomes: this.nomes,
-        fraseIntro: this.fraseIntro,
-        fraseCorpo: this.fraseCorpo,
-        nomePais: this.nomePais,
-        date: this.date,
-        local: this.local,
-        monograma: this.monograma,
-        flores: this.flores,
-        arabesco: this.arabesco,
-        traje: this.traje,
-        acabamento: this.acabamento,
-        senhas: this.senhas,
-        localListaPresentes: this.localListaPresentes,
-        cores: this.cores,
-        anexos: this.anexos
-      }
-      console.log('Dados enviados: ', { data })
-      this.$q.notify({
-        message: 'Informações enviadas com sucesso!',
-        color: 'positive',
-        icon: 'check_circle',
-        position: 'top'
-      })
-    }
+const $q = useQuasar()
+
+const nomes = ref('')
+const fraseIntro = ref('')
+const fraseCorpo = ref('')
+const nomePais = ref('')
+const date = ref('')
+const local = ref('')
+const monograma = ref('')
+const flores = ref('')
+const arabesco = ref('')
+const traje = ref('')
+const acabamento = ref('')
+const acabamentoOptions = ref(['Fita de cetim', 'Sisal', 'Fio', 'Pérola', 'Lacre de cera'])
+const senhas = ref(null)
+const localListaPresentes = ref('')
+const cores = ref('')
+const anexos = ref(null)
+
+function onSubmit() {
+  const data = {
+    nomes: nomes.value,
+    fraseIntro: fraseIntro.value,
+    fraseCorpo: fraseCorpo.value,
+    nomePais: nomePais.value,
+    date: date.value,
+    local: local.value,
+    monograma: monograma.value,
+    flores: flores.value,
+    arabesco: arabesco.value,
+    traje: traje.value,
+    acabamento: acabamento.value,
+    senhas: senhas.value,
+    localListaPresentes: localListaPresentes.value,
+    cores: cores.value,
+    anexos: anexos.value
   }
+  console.log('Dados enviados: ', { data })
+
+  $q.notify({
+    message: 'Informações enviadas com sucesso!',
+    color: 'positive',
+    icon: 'check_circle',
+    position: 'top'
+  })
 }
 </script>

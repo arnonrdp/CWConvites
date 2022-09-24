@@ -18,27 +18,28 @@
   </v-sheet>
 </template>
 
-<script>
-import "@splidejs/splide/dist/css/splide.min.css";
+<script setup>
+import { ref } from 'vue'
+import '@splidejs/splide/dist/css/splide.min.css'
 
-export default {
-  data: () => ({
-    options: {
-      arrows: false,
-      autoplay: true,
-      interval: 4000,
-      pagination: false,
-      rewind: true,
-      speed: 3000,
-      type: "fade",
-    },
-    depoimentos: [
-      { quote: "Lorem ipsum dolor sit amet consectetur adipisicing elit.", author: "Autor 1 da Citação" },
-      { quote: "Non sed delectus laborum labore commodi est perspiciatis quia.", author: "Autor 2 da Citação" },
-      { quote: "Aliquid, temporibus cum commodi consectetur ullam dolorem asperiores architecto dolores ea recusandae beatae.", author: "Autor 3 da Citação" },
-    ],
-  }),
-};
+const options = ref({
+  arrows: false,
+  autoplay: true,
+  interval: 4000,
+  pagination: false,
+  rewind: true,
+  speed: 3000,
+  type: 'fade'
+})
+
+const depoimentos = [
+  { quote: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', author: 'Autor 1 da Citação' },
+  { quote: 'Non sed delectus laborum labore commodi est perspiciatis quia.', author: 'Autor 2 da Citação' },
+  {
+    quote: 'Aliquid, temporibus cum commodi consectetur ullam dolorem asperiores architecto dolores ea recusandae beatae.',
+    author: 'Autor 3 da Citação'
+  }
+]
 </script>
 
 <style scoped>
@@ -60,6 +61,6 @@ export default {
   content: close-quote;
 }
 .quote blockquote {
-  quotes: "“" "”" "‘" "’";
+  quotes: '“' '”' '‘' '’';
 }
 </style>

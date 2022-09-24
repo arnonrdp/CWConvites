@@ -12,47 +12,43 @@
         <img :src="path" alt="produto destaque" />
       </SplideSlide>
     </Splide>
-
   </v-sheet>
 </template>
 
-<script>
-import "@splidejs/splide/dist/css/splide.min.css";
+<script setup>
+import '@splidejs/splide/dist/css/splide.min.css'
+import { ref } from 'vue'
 
-export default {
-  data: () => ({
-    options: {
-      arrows: false,
-      autoplay: true,
-      cover: true,
-      drag: "free",
-      fixedHeight: "20rem",
-      fixedWidth: "20rem",
-      focus: "center",
-      gap: "1rem",
-      pagination: false,
-      rewind: true,
-      interval: 1000,
-      speed: 2500,
-      type: "loop",
-    },
-    acessados: [
-      { path: "/gallery/acessado1.jpeg" },
-      { path: "/gallery/acessado2.jpeg" },
-      { path: "/gallery/acessado3.jpeg" },
-      { path: "/gallery/acessado4.jpeg" },
-      { path: "/gallery/acessado5.jpeg" },
-      { path: "/gallery/acessado6.jpeg" },
-      { path: "/gallery/acessado7.jpeg" },
-      { path: "/gallery/acessado8.jpeg" },
-      { path: "/gallery/acessado9.jpeg" },
-      { path: "/gallery/acessado10.jpeg" },
-      { path: "/gallery/acessado11.jpeg" },
-      { path: "/gallery/acessado12.jpeg" },
-      { path: "/gallery/acessado13.gif" },
-    ],
-  }),
-};
+const options = ref({
+  arrows: false,
+  autoplay: true,
+  cover: true,
+  drag: 'free',
+  fixedHeight: '20rem',
+  fixedWidth: '20rem',
+  focus: 'center',
+  gap: '1rem',
+  pagination: false,
+  rewind: true,
+  interval: 1000,
+  speed: 2500,
+  type: 'loop'
+})
+const acessados = ref([
+  { path: '/gallery/acessado1.jpeg' },
+  { path: '/gallery/acessado2.jpeg' },
+  { path: '/gallery/acessado3.jpeg' },
+  { path: '/gallery/acessado4.jpeg' },
+  { path: '/gallery/acessado5.jpeg' },
+  { path: '/gallery/acessado6.jpeg' },
+  { path: '/gallery/acessado7.jpeg' },
+  { path: '/gallery/acessado8.jpeg' },
+  { path: '/gallery/acessado9.jpeg' },
+  { path: '/gallery/acessado10.jpeg' },
+  { path: '/gallery/acessado11.jpeg' },
+  { path: '/gallery/acessado12.jpeg' },
+  { path: '/gallery/acessado13.gif' }
+])
 </script>
 
 <style scoped>

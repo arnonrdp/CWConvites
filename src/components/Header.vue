@@ -1,11 +1,11 @@
 <template>
   <v-app-bar style="opacity: 0.8" color="grey">
-    <div class="d-flex align-center">
-      <v-img alt="Logotipo" class="shrink mt-1 hidden-sm-and-down" contain min-width="100" src="/logo_horizontal.svg" width="260" />
-    </div>
-
-    <v-spacer></v-spacer>
-
-    <v-btn href="/pedido-convite">Solicitar Convite</v-btn>
+    <header class="full-width flex justify-between">
+      <router-link class="d-flex align-center" to="/">
+        <img alt="Logotipo" src="/logo_horizontal.svg" width="260" />
+      </router-link>
+  
+      <q-btn flat to="/solicitar-convite">Solicitar Convite</q-btn>
+    </header>
   </v-app-bar>
 </template>
