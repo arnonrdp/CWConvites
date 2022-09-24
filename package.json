@@ -8,16 +8,19 @@
   },
   "dependencies": {
     "@mdi/font": "5.9.55",
+    "@quasar/extras": "^1.15.3",
     "@splidejs/vue-splide": "^0.6.7",
+    "quasar": "^2.8.4",
     "vue": "^3.2.38",
     "vue-router": "^4.1.5",
     "vuetify": "^3.0.0-beta.0",
     "webfontloader": "^1.6.28"
   },
   "devDependencies": {
+    "@quasar/vite-plugin": "^1.2.3",
     "@vue/cli-plugin-router": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
-    "sass": "^1.38.0",
+    "sass": "^1.32.12",
     "sass-loader": "^10.0.0",
     "vue-cli-plugin-vuetify": "~2.4.8",
     "vuetify-loader": "^2.0.0-alpha.0"

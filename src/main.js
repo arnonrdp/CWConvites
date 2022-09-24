@@ -1,4 +1,7 @@
-import VueSplide from "@splidejs/vue-splide"
+import '@quasar/extras/material-icons/material-icons.css'
+import VueSplide from '@splidejs/vue-splide'
+import { Quasar, Notify } from 'quasar'
+import 'quasar/src/css/index.sass'
 import { createApp } from 'vue'
 import App from './App.vue'
 import vuetify from './plugins/vuetify'
@@ -9,6 +12,9 @@ loadFonts()
 
 createApp(App)
   .use(router)
+  .use(Quasar, {
+    plugins: { Notify }
+  })
   .use(vuetify)
   .use(VueSplide)
   .mount('#app')
