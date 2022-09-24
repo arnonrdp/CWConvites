@@ -6,9 +6,6 @@
 
     <v-spacer></v-spacer>
 
-    <v-btn href="#">Convites</v-btn>
-    <v-btn href="#">Caixas</v-btn>
-    <v-btn href="#">Papelaria</v-btn>
-    <v-btn href="#">Dicas</v-btn>
+    <v-btn href="/pedido-convite">Solicitar Convite</v-btn>
   </v-app-bar>
 </template>
