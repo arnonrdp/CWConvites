@@ -1,6 +1,6 @@
 <template>
   <h4 class="q-my-md text-center" style="margin-top: 100px">Informações para o convite</h4>
-  <q-form @submit="onSubmit" class="q-gutter-y-md row">
+  <q-form @submit.prevent="onSubmit" class="q-gutter-y-md row q-mx-auto" style="max-width: 1024px">
     <q-input
       filled
       required
@@ -30,7 +30,7 @@
       label="Nome dos pais"
       hint="Informar em caso de “in memorian” “Sempre Presente” “I.M.” “ ♥ ”, ideal colocar nome e 1 sobrenome. Ex: João Oliveira e Julia Simas."
     />
-    <q-input filled v-model="date" class="col-md-4 col-sm-6 col-xs-12 q-px-md" mask="datetime" required>
+    <q-input filled v-model="date" class="col-md-4 col-sm-6 col-xs-12 q-px-md" label="Data e Hora" required>
       <template v-slot:prepend>
         <q-icon name="event" class="cursor-pointer">
           <q-popup-proxy cover transition-show="scale" transition-hide="scale">
@@ -63,13 +63,7 @@
       hint="Caso seja em dois locais informar os endereços de ambos."
       required
     />
-    <q-input
-      filled
-      v-model="monograma"
-      class="col-md-3 col-sm-6 col-xs-12 q-px-md"
-      label="Monograma"
-      hint="Informar cor e número."
-    />
+    <q-input filled v-model="monograma" class="col-md-3 col-sm-6 col-xs-12 q-px-md" label="Monograma" hint="Informar cor e número." />
     <q-input filled v-model="flores" class="col-md-3 col-sm-6 col-xs-12 q-px-md" label="Flores" hint="Informar cor." />
     <q-input filled v-model="arabesco" class="col-md-3 col-sm-6 col-xs-12 q-px-md" label="Arabesco" hint="Informar cor." />
     <q-input
@@ -102,8 +96,8 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
 import { useQuasar } from 'quasar'
+import { ref } from 'vue'
 
 const $q = useQuasar()
 
@@ -125,7 +119,7 @@ const cores = ref('')
 const anexos = ref(null)
 
 function onSubmit() {
-  const data = {
+  const message = {
     nomes: nomes.value,
     fraseIntro: fraseIntro.value,
     fraseCorpo: fraseCorpo.value,
@@ -142,13 +136,6 @@ function onSubmit() {
     cores: cores.value,
     anexos: anexos.value
   }
-  console.log('Dados enviados: ', { data })
-
-  $q.notify({
-    message: 'Informações enviadas com sucesso!',
-    color: 'positive',
-    icon: 'check_circle',
-    position: 'top'
-  })
+  console.log({ message })
 }
 </script>

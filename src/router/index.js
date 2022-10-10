@@ -1,23 +1,22 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-const routes = [
-  {
-    path: '/',
-    component: () => import('../views/HomeView.vue')
-  },
-  {
-    path: '/solicitar-convite',
-    component: () => import('../views/Pedido.vue')
-  },
-  {
-    path: '/catalogo',
-    component: () => import('../views/Catalogo.vue')
-  }
-]
-
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
-  routes
+  history: createWebHistory(import.meta.env.BASE_URL),
+  routes: [
+    {
+      path: '/',
+      component: () => import('../views/HomeView.vue')
+    },
+    {
+      path: '/solicitar-convite',
+      name: 'solicitar-convite',
+      component: () => import('../views/Pedido.vue')
+    },
+    {
+      path: '/catalogo',
+      component: () => import('../views/Catalogo.vue')
+    }
+  ]
 })
 
 export default router
