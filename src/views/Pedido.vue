@@ -1,10 +1,11 @@
 <template>
   <h4 class="q-my-md text-center" style="margin-top: 100px">Informações para o convite</h4>
-  <q-form @submit.prevent="onSubmit" class="q-gutter-y-md row q-mx-auto" style="max-width: 1024px">
+  <q-form ref="form" @submit.prevent="onSubmit" class="q-gutter-y-md row q-mx-auto" style="max-width: 1024px">
     <q-input
       filled
       required
       v-model="nomes"
+      name="nomes"
       class="col-12 q-px-md"
       label="Nome aniversariante / noivos *"
       hint="A ordem que for inserida será colocada no convite"
@@ -12,6 +13,7 @@
     <q-input
       filled
       v-model="fraseIntro"
+      name="fraseIntro"
       class="col-12 q-px-md"
       label="Frase introdução"
       hint="É uma frase que seja importante para o casal/debutante, podendo ser um versículo, trecho de música, um poema."
@@ -19,6 +21,7 @@
     <q-input
       filled
       v-model="fraseCorpo"
+      name="fraseCorpo"
       class="col-12 q-px-md"
       label="Frase corpo do convite"
       hint="É como o casal/debutante quer convidar o seu convidado. Ex: Convidam para a celebração de seu casamento, a realizar-se..."
@@ -26,11 +29,12 @@
     <q-input
       filled
       v-model="nomePais"
+      name="nomePais"
       class="col-12 q-px-md"
       label="Nome dos pais"
       hint="Informar em caso de “in memorian” “Sempre Presente” “I.M.” “ ♥ ”, ideal colocar nome e 1 sobrenome. Ex: João Oliveira e Julia Simas."
     />
-    <q-input filled v-model="date" class="col-md-4 col-sm-6 col-xs-12 q-px-md" label="Data e Hora" required>
+    <q-input filled v-model="date" name="date" class="col-md-4 col-sm-6 col-xs-12 q-px-md" label="Data e Hora" required>
       <template v-slot:prepend>
         <q-icon name="event" class="cursor-pointer">
           <q-popup-proxy cover transition-show="scale" transition-hide="scale">
@@ -63,12 +67,20 @@
       hint="Caso seja em dois locais informar os endereços de ambos."
       required
     />
-    <q-input filled v-model="monograma" class="col-md-3 col-sm-6 col-xs-12 q-px-md" label="Monograma" hint="Informar cor e número." />
+    <q-input
+      filled
+      v-model="monograma"
+      name="monograma"
+      class="col-md-3 col-sm-6 col-xs-12 q-px-md"
+      label="Monograma"
+      hint="Informar cor e número."
+    />
     <q-input filled v-model="flores" class="col-md-3 col-sm-6 col-xs-12 q-px-md" label="Flores" hint="Informar cor." />
     <q-input filled v-model="arabesco" class="col-md-3 col-sm-6 col-xs-12 q-px-md" label="Arabesco" hint="Informar cor." />
     <q-input
       filled
       v-model="traje"
+      name="traje"
       class="col-md-3 col-sm-6 col-xs-12 q-px-md"
       label="Traje para o evento"
       hint="Ex: Esporte Fino, Black Tie, Passeio, Boho-chic, Cocktail Dress..."
@@ -77,6 +89,7 @@
     <q-input
       filled
       v-model.number="senhas"
+      name="senhas"
       type="number"
       class="col-md-3 col-sm-6 col-xs-12 q-px-md"
       label="Qtde de senhas"
@@ -85,22 +98,31 @@
     <q-input
       filled
       v-model="localListaPresentes"
+      name="localListaPresentes"
       class="col-sm-6 col-xs-12 q-px-md"
       label=" Local lista de presente"
       hint="Se não houver a tradicional lista informar qual será o pedido, observando que o tamanho padrão para a tag é de 6x4cm, textos longos serão ruins para leitura."
     />
-    <q-input filled v-model="cores" class="col-sm-6 col-xs-12 q-px-md" label="Cores predominantes do seu evento" />
-    <q-file filled v-model="anexos" class="col-sm-6 col-xs-12 q-px-md" label="Anexos (fotos, monogramas, brasão, fontes...)" />
+    <q-input filled v-model="cores" name="cores" class="col-sm-6 col-xs-12 q-px-md" label="Cores predominantes do seu evento" />
+    <q-file
+      filled
+      v-model="anexos"
+      name="anexos"
+      class="col-sm-6 col-xs-12 q-px-md"
+      label="Anexos (fotos, monogramas, brasão, fontes...)"
+    />
     <q-btn class="col-12 q-mt-xl q-px-md" label="Enviar" type="submit" />
   </q-form>
 </template>
 
 <script setup>
 import { useQuasar } from 'quasar'
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
+import emailjs from '@emailjs/browser'
 
 const $q = useQuasar()
 
+const form = ref(null)
 const nomes = ref('')
 const fraseIntro = ref('')
 const fraseCorpo = ref('')
@@ -117,6 +139,8 @@ const senhas = ref(null)
 const localListaPresentes = ref('')
 const cores = ref('')
 const anexos = ref(null)
+
+onMounted(() => (form.value = form.value.$el))
 
 function onSubmit() {
   const message = {
@@ -137,5 +161,10 @@ function onSubmit() {
     anexos: anexos.value
   }
   console.log({ message })
+
+  emailjs.sendForm('service_hmhs9mc', 'template_ojfpaf7', form.value, '3X8CVYmzOL8_wbZZK').then(
+    (result) => console.log('SUCCESS!', result.text),
+    (error) => console.log('FAILED...', error.text)
+  )
 }
 </script>
