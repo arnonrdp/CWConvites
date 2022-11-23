@@ -18,7 +18,7 @@
     "vite": "^3.2.1",
     "vue": "^3.2.41",
     "vue-router": "^4.1.6",
-    "vuetify": "^3.0.0-beta.0",
+    "vuetify": "^3.0.0",
     "webfontloader": "^1.6.28"
   },
   "devDependencies": {
