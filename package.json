@@ -12,7 +12,8 @@
     "@quasar/extras": "^1.16.2",
     "firebase": "^9.20.0",
     "quasar": "^2.11.10",
-    "vue": "^3.2.47"
+    "vue": "^3.2.47",
+    "vue-router": "4"
   },
   "devDependencies": {
     "@quasar/vite-plugin": "^1.3.0",
