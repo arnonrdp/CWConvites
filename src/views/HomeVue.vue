@@ -9,6 +9,21 @@
     Deixe-nos ajudá-lo a fazer do seu evento um sucesso. Dê uma olhada em nosso portfólio e entre em contato conosco para começarmos a
     trabalhar juntos!
   </h5>
+
+  <h4>Produtos</h4>
+  <section class="flex justify-around">
+    <div v-for="(product, index) in products" :key="index">
+      <TheCard :img="product.img" :label="product.label" />
+    </div>
+  </section>
 </template>
 
-<script setup></script>
+<script setup>
+import TheCard from '../components/TheCard.vue'
+
+const products = [
+  { img: 'https://cdn.quasar.dev/img/mountains.jpg', label: 'Montanhas' },
+  { img: 'https://cdn.quasar.dev/img/parallax1.jpg', label: 'Rio' },
+  { img: 'https://cdn.quasar.dev/img/parallax2.jpg', label: 'Ponte' }
+]
+</script>
