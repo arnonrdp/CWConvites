@@ -1,7 +1,7 @@
 import { deleteObject, getDownloadURL, ref, uploadBytes } from 'firebase/storage'
 import { defineStore } from 'pinia'
 import { db, storage } from '../firebase'
-import { addDoc, collection, doc } from 'firebase/firestore'
+import { addDoc, collection, doc, getDocs } from 'firebase/firestore'
 
 export const useProductStore = defineStore('products', {
   state: () => ({
@@ -34,6 +34,16 @@ export const useProductStore = defineStore('products', {
       this._isLoading = true
       await addDoc(collection(db, 'products'), product)
         .then(() => this._products.push(product))
+        .finally(() => (this._isLoading = false))
+    },
+
+    async readProducts() {
+      this._isLoading = true
+      await getDocs(collection(db, 'products'))
+        .then((querySnapshot) => {
+          this._products = querySnapshot.docs.map((doc) => doc.data())
+        })
+        .catch((error) => console.error(error))
         .finally(() => (this._isLoading = false))
     }
   }
