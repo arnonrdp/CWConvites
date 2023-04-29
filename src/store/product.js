@@ -1,20 +1,22 @@
 import { deleteObject, getDownloadURL, ref, uploadBytes } from 'firebase/storage'
 import { defineStore } from 'pinia'
-import { storage } from 'src/firebase'
+import { db, storage } from '../firebase'
+import { addDoc, collection, doc } from 'firebase/firestore'
 
 export const useProductStore = defineStore('products', {
   state: () => ({
-    _isLoading: false
+    _isLoading: false,
+    _products: []
   }),
 
   getters: {
-    isLoading: (state) => state._isLoading
+    isLoading: (state) => state._isLoading,
+    products: (state) => state._products
   },
 
   actions: {
     async uploadFile(file, filename) {
-      const storageRef = ref(storage, `images/${filename}`)
-
+      const storageRef = ref(storage, filename)
       this._isLoading = true
       await uploadBytes(storageRef, file).finally(() => (this._isLoading = false))
 
@@ -22,10 +24,17 @@ export const useProductStore = defineStore('products', {
     },
 
     async deleteFile(filename) {
-      const storageRef = ref(storage, `images/${filename}`)
+      const storageRef = ref(storage, filename)
 
       this._isLoading = true
       await deleteObject(storageRef).finally(() => (this._isLoading = false))
+    },
+
+    async createProduct(product) {
+      this._isLoading = true
+      await addDoc(collection(db, 'products'), product)
+        .then(() => this._products.push(product))
+        .finally(() => (this._isLoading = false))
     }
   }
 })
