@@ -1,6 +1,6 @@
-import { Quasar } from 'quasar'
-import { createApp } from 'vue'
 import { createPinia } from 'pinia'
+import { Notify, Quasar } from 'quasar'
+import { createApp } from 'vue'
 
 // Import icon libraries
 import '@quasar/extras/material-icons/material-icons.css'
@@ -16,7 +16,10 @@ import router from './router'
 const pinia = createPinia()
 const app = createApp(App)
 
-app.use(Quasar)
+app.use(Quasar, {
+  config: { notify: { position: 'top', progress: true, timeout: 3000, multiline: true } },
+  plugins: { Notify }
+})
 app.use(pinia)
 app.use(router)
 
