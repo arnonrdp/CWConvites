@@ -12,7 +12,7 @@
 
   <h4>Produtos</h4>
   <section class="flex justify-around">
-    <div v-for="(product, index) in products" :key="index">
+    <div v-for="(product, index) in products" class="q-gutter-md" :key="index">
       <TheCard v-bind="product" />
     </div>
   </section>
