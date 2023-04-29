@@ -13,17 +13,25 @@
   <h4>Produtos</h4>
   <section class="flex justify-around">
     <div v-for="(product, index) in products" :key="index">
-      <TheCard :img="product.img" :label="product.label" />
+      <TheCard v-bind="product" />
     </div>
   </section>
 </template>
 
 <script setup>
+import { onMounted, ref } from 'vue'
 import TheCard from '../components/TheCard.vue'
+import { useProductStore } from '../store'
 
-const products = [
-  { img: 'https://cdn.quasar.dev/img/mountains.jpg', label: 'Montanhas' },
-  { img: 'https://cdn.quasar.dev/img/parallax1.jpg', label: 'Rio' },
-  { img: 'https://cdn.quasar.dev/img/parallax2.jpg', label: 'Ponte' }
-]
+const productStore = useProductStore()
+
+const products = ref(productStore.products)
+
+onMounted(async () => {
+  await productStore.readProducts()
+})
+
+productStore.$subscribe((_, state) => {
+  products.value = state._products
+})
 </script>
