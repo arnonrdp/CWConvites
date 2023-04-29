@@ -65,9 +65,7 @@ async function uploadImages(files) {
 }
 
 function removeFile(file) {
-  console.log(file)
   const index = product.images.indexOf(file)
-  console.log(index)
   productStore
     .deleteFile(`${product.category.value}/${file.name}`)
     .then(() => product.images.splice(index, 1))
