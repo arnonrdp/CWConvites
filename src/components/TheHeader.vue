@@ -1,5 +1,5 @@
 <template>
-  <q-header class="bg-transparent" reveal>
+  <q-header class="bg-transparent">
     <q-toolbar class="text-white">
       <q-toolbar-title>
         <RouterLink to="/">
