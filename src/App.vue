@@ -11,13 +11,19 @@
 import TheHeader from './components/TheHeader.vue'
 </script>
 
-<style>
+<style lang="scss">
 body {
-  background: #800000; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to bottom, #e6e7e8, #800000); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to bottom, #e6e7e8, #800000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: $primary; /* fallback for old browsers */
+  background: -moz-linear-gradient(top, $secondary, $primary); /* Firefox 3.6-15 */
+  background: -webkit-linear-gradient(top, $secondary, $primary); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(top, $secondary, $primary); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   margin: auto;
   max-width: 90vw;
   width: 1200px;
+}
+
+.q-body--fullscreen-mixin,
+.q-body--prevent-scroll {
+  position: inherit !important;
 }
 </style>
