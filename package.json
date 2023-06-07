@@ -13,7 +13,7 @@
     "firebase": "^9.22.0",
     "pinia": "^2.0.35",
     "quasar": "^2.11.10",
-    "vue": "^3.2.47",
+    "vue": "^3.3.2",
     "vue-router": "4"
   },
   "devDependencies": {
