@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@quasar/extras": "^1.16.3",
+    "@quasar/extras": "^1.16.5",
     "firebase": "^10.2.0",
     "pinia": "^2.0.36",
     "quasar": "^2.12.0",
